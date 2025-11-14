@@ -1,0 +1,106 @@
+.profile-container {
+    max-width: 600px;
+    margin: 80px auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .profile-container h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #c2185b;
+    font-size: 1.8rem;
+  }
+  
+  .profile-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .profile-container input {
+    padding: 12px 16px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border 0.2s ease;
+  }
+  
+  .profile-container input:focus {
+    border-color: #c2185b;
+  }
+  
+  .profile-container button {
+    background-color: #c2185b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+  }
+  
+  .profile-container button:hover {
+    background-color: #e91e63;
+  }
+  
+  .profile-container button:active {
+    transform: scale(0.97);
+  }
+  
+  .toggle-btn {
+    background: none;
+    border: none;
+    color: #c2185b;
+    cursor: pointer;
+    font-size: 0.95rem;
+    margin-top: 10px;
+  }
+  
+  .profile-orders {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .order-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background: #fff;
+  }
+  
+  .order-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .order-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    padding: 5px;
+    background: #fafafa;
+  }
+  
+  .order-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .order-item p {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    text-align: center;
+  }
