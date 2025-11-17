@@ -1,4 +1,4 @@
-const API_ROOT = 'https://undegenerating-contumely-lashandra.ngrok-free.dev'
+const API_ROOT = import.meta.env.VITE_API_URL || 'https://undegenerating-contumely-lashandra.ngrok-free.dev'
 
 export async function apiGet(path, token) {
   const res = await fetch(API_ROOT + path, {
