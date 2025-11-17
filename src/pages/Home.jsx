@@ -13,24 +13,29 @@ export default function Home() {
 
   useEffect(() => {
     async function loadProducts() {
-      const data = await apiGet("/api/products");
-      setProducts(data);
+      try {
+        const data = await apiGet("/api/products");
+        setProducts(data);
+      } catch (err) {
+        console.error("Ошибка загрузки продуктов:", err);
+      }
     }
     loadProducts();
   }, []);
 
   useEffect(() => {
-    if (user) {
-      async function loadFavorites() {
-        try {
-          const favs = await apiGet(`/api/favorites/${user.login}`);
-          setFavorites(favs);
-        } catch (err) {
-          console.error("Ошибка загрузки рекомендаций:", err);
-        }
+    if (!user) return;
+
+    async function loadFavorites() {
+      try {
+        const favs = await apiGet(`/api/favorites/${user.login}`);
+        setFavorites(favs);
+      } catch (err) {
+        console.error("Ошибка загрузки рекомендаций:", err);
       }
-      loadFavorites();
     }
+
+    loadFavorites();
   }, [user]);
 
   const displayed = tab === "all" ? products : favorites;
@@ -43,9 +48,8 @@ export default function Home() {
     <div className="home-container">
       <div className="hero">
         <h1>цветочный магазин “Вуф”</h1>
-        <p>тута самые свежий цветошки</p>
+        <p>тута самые свежие цветошки</p>
       </div>
-
       <div className="tabs">
         <button
           className={tab === "all" ? "active" : ""}
@@ -73,7 +77,9 @@ export default function Home() {
 
       <div className="products-grid">
         {filtered.length > 0 ? (
-          filtered.map((p) => <ProductCard key={p.id} product={p} />)
+          filtered.map((p) => (
+            <ProductCard key={p.id} product={p} user={user} />
+          ))
         ) : (
           <p className="empty">ничего не найдено</p>
         )}
